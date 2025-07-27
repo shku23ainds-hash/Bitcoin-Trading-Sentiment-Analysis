@@ -1,83 +1,102 @@
-# 📉 Bitcoin Trading Sentiment Analysis
+# Bitcoin Trading Sentiment Analysis
 
-This project explores the relationship between Bitcoin market sentiment and trader performance using two datasets: a **Fear & Greed index** and **historical trading data** from Hyperliquid. The analysis demonstrates how sentiment impacts **closed PnL** and trading outcomes.
+This project analyzes the impact of market sentiment on trader performance using real trading data and sentiment classifications. By combining the **Bitcoin Fear & Greed Index** with **trading activity from Hyperliquid**, we explore whether traders perform better during periods of fear or greed.
 
 ---
 
-## 📁 Datasets Used
+## Objective
+
+To determine how market sentiment influences trader profitability by:
+
+- Merging sentiment and trading datasets
+- Calculating average closed PnL per sentiment category
+- Visualizing patterns and extracting insights for strategic trading
+
+---
+
+##  Datasets
 
 1. **fear_greed.csv**  
-   Contains daily Bitcoin sentiment values — either `"Fear"` or `"Greed"` — based on the Fear & Greed Index.
+   - Columns: `date`, `classification`  
+   - Source: Bitcoin Fear & Greed Index  
+   - Purpose: Sentiment classification (`Fear`, `Greed`, `Extreme Fear`, `Neutral`, etc.)
 
 2. **historical_data.csv**  
-   Contains real trading data from Hyperliquid, including account activity, closed PnL, time, and trading side.
+   - Columns: `account`, `symbol`, `execution_price`, `size`, `side`, `time`, `start_position`, `event`, `closedPnL`, `leverage`, etc.  
+   - Source: Hyperliquid (mock or anonymized real trader data)  
+   - Purpose: Analyze trader profitability by date
 
 ---
 
-## 🧪 What This Project Does
+## Analysis Overview
 
-- Loads and cleans both datasets using `pandas`
-- Merges sentiment data with trader performance by date
-- Calculates **average closed PnL** by sentiment classification
-- Visualizes insights using a **bar chart**
-- Helps understand whether trading during fear or greed is more profitable
-
----
-
-## 🧰 Tools & Technologies
-
-- Google Colab  
-- Python  
-  - pandas  
-  - matplotlib  
-- GitHub
+- Preprocessed and cleaned both datasets using `pandas`
+- Aligned trades with daily sentiment based on timestamps
+- Calculated **average closedPnL** by sentiment type
+- Created bar plots to visualize sentiment vs performance
 
 ---
 
-## ▶️ Open Notebook in Google Colab
+## Key Insights
 
-Click below to open and run the notebook directly in Google Colab:
+- Traders tend to show **higher average PnL during Greed and Extreme Greed** phases
+- **Fear and Extreme Fear** days show more volatility and inconsistent outcomes
+- These trends can help design **sentiment-aware trading strategies**
+
+---
+
+## Tech Stack
+
+- **Python**
+  - pandas
+  - matplotlib
+- **Google Colab** (for cloud-based analysis)
+- **GitHub** (for version control and sharing)
+
+---
+
+##  Run the Notebook
+
+You can open and run the analysis directly in Google Colab using the badge below:
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shku23ainds-hash/Bitcoin-Trading-Sentiment-Analysis/blob/main/Trader_Sentiment_Analysis.ipynb)
 
 ---
 
-## 📂 Files in This Repo
+## Project Structure
 
-| File | Description |
-|------|-------------|
-| `Trader_Sentiment_Analysis.ipynb` | Main analysis notebook |
-| `fear_greed.csv` | Sentiment classification data |
-| `historical_data.csv` | Trader activity and PnL data |
-
----
-
-## ✅ How to Use
-
-1. Click the **Open in Colab** badge above.
-2. Upload both datasets (`fear_greed.csv`, `historical_data.csv`) in the notebook environment if not already present.
-3. Run all cells to view the sentiment-wise PnL analysis.
+| File                            | Description                                     |
+|---------------------------------|-------------------------------------------------|
+| `Trader_Sentiment_Analysis.ipynb` | Main analysis notebook                         |
+| `fear_greed.csv`               | Bitcoin sentiment classification data          |
+| `historical_data.csv`          | Historical trader performance data             |
 
 ---
 
-## 📌 Result Summary
+## How to Use
 
-📊 The final output graph shows:
-- Average PnL for traders on **Fear** days
-- Average PnL for **Greed** days
-- Helpful insights into sentiment-based trading strategies
-
----
-
-## 💡 Future Improvements
-
-- Add more sentiment classes (Extreme Fear, Extreme Greed)
-- Include volume and leverage-based filtering
-- Automate data updates via API
+1. Click on the **Open in Colab** badge above.
+2. Upload both `.csv` files when prompted or ensure they are in the same directory.
+3. Run all cells to view sentiment-wise PnL trends and plots.
 
 ---
 
-## ©️ License
+## Future Enhancements
 
-This project is intended for educational and research purposes.
+- Integrate live sentiment API (e.g., Alternative.me)
+- Extend to other crypto assets (ETH, SOL, etc.)
+- Analyze behavior by trader segments or leverage levels
+- Add moving averages or rolling sentiment windows
 
+---
+
+## License
+
+This project is open for educational, research, and demonstration purposes only.
+
+---
+
+##  Author
+
+Shilpi Kumari. | Data Science Enthusiast  
+GitHub: [@shku23ainds-hash](https://github.com/shku23ainds-hash)
